@@ -1,0 +1,62 @@
+.header {
+  position: fixed;
+  border-bottom: 1px solid #ccc;
+  height: 70px;
+  line-height: 70px;
+  background-color: #fdfdfd;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo {
+  width: 260px;
+}
+
+.flower-grid {
+  margin: 70px;
+  margin-top: 140px;
+  padding-bottom: 0 !important;
+}
+
+.flower-grid md-grid-tile {
+  transition: all 400ms ease-out 50ms;
+}
+
+.flower-display {
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.flower-price,
+.flower-name {
+  font-family: 'Quicksand', Helvetica, sans-serif;
+  color: rgba(51, 51, 51, 0.5);
+  font-size: 2em;
+}
+
+.flower-price {
+  font-weight: bold;
+}
+
+.title {
+  font-family: 'Microsoft JhengHei UI Light', Helvetica;
+  font-size: 4rem;
+  color: rgba(50, 50, 50, 0.7);
+  text-align: center;
+  padding-bottom: 10px;
+}

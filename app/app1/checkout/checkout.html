@@ -1,0 +1,46 @@
+<div>
+  <md-grid-list class="flower-grid"
+    md-cols-xs="1" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
+    md-row-height="1:1.6"
+    md-gutter="70px">
+    <md-grid-tile ng-repeat="flower in data.flowers" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1">
+      <a class="flower-display" ng-click="selectFlower(flower)" style="background-image:url({{flower.default_bouquet.image_urls.ios_main}});">
+        <div class="footer">
+          <div class="flower-name">{{flower.name}}</div>
+          <div class="flower-price">£{{flower.pricings[0].amount}}</div>
+        </div>
+      </a>
+    </md-grid-tile>
+
+    <md-grid-tile ng-show="chosen" md-colspan-gt-md="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+      <div id="pricing">
+        <div class="title">PRICING</div>
+        <div style="margin-top:40px; font-family:'Microsoft JhengHei UI', Helvetica;">HOW MANY FLOWERS?</div>
+        <md-select ng-model="data.quantity" style="margin:10 auto;" ng-change="calculatePrice()">
+          <md-option selected value="1">1</md-option>
+          <md-option value="3">3</md-option>
+          <md-option value="6">6</md-option>
+          <md-option value="12">12</md-option>
+          <md-option value="26">26</md-option>
+          <md-option value="52">52</md-option>
+        </md-select>
+
+        <div style="margin-top:40px; font-family:'Microsoft JhengHei UI', Helvetica;">SELECT SHIPPING OPTION</div>
+        <md-select ng-model="data.shipment_price" placeholder="Select Shipping Option" style="margin:10 auto;" ng-change="calculatePrice()">
+          <md-option ng-repeat="shipment in data.shipping" value="{{shipment.price}}">{{shipment.name}}</md-option>
+        </md-select>
+
+        <div style="margin-top:40px; margin-left: 10px; font-family:'Microsoft JhengHei UI', Helvetica;">FIRST DELIVERY DATE</div>
+        <md-datepicker ng-model="data.order_date" md-placeholder="Enter Date" style="margin:10px auto" ng-change="calculatePrice()"></md-datepicker>
+
+        <div id="total" ng-if="data.order_date && chosen && data.quantity && data.shipment_price">
+          <div style="margin-top:50px; text-align: center; color:#444 ; font-family:'Microsoft JhengHei UI', Helvetica; font-size: 2rem">ORDER TOTAL</div>
+          <div style="margin-top:7px; text-align: center; color:#555 ; font-family:'Microsoft JhengHei UI', Helvetica; font-size: 3rem">£{{data.total}}</div>
+        </div>
+      </div>
+    </md-grid-tile>
+
+  </md-grid-list>
+
+
+</div>
